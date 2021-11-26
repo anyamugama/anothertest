@@ -1,15 +1,4 @@
---drop table [dbo].[Attrition Graph]
---select count(*) from  [dbo].[Attrition Graph] --
-select count(*) from [dbo].[Status Table]
-select count(*) from [dbo].[Payment query]
-select count(*) from [dbo].[Pledge query]
-select count(*) from [dbo].[Sustainer Query]
-select count(*) from [dbo].[Account Query]
---drop table [dbo].[Payment query]
---drop table [dbo].[Status Table]
---drop table [dbo].[Attrition Graph1]
---drop table [dbo].[Pledge query]
---drop table #UKSustainers
+
 select 
     distinct
     st.ID,
@@ -65,25 +54,4 @@ group by st.[Marketing Division],
 	aq.Age
 --order by st.ID,st.[Months Prior] --pay.CloseDate, --4931 rows
 
-select * from [dbo].[Payment query] 
-where MarketingDivision = 'UK Marketing' --ID = '0063100000etRhVAAU'
-order by ID
-
-
-select top 5 * from [dbo].[Pledge query] 
-where Donors = '0063r000019a01ZAAQ'
-
-select top 5 * from [dbo].[Status Table] 
-where ID = '0063r000019a01ZAAQ'
-
-select * from [dbo].[Sustainer Query]
-
------------------------------
-select * from #UKSustainersDataWithPayments 
-order by ID, DateOfPayment
-order by ID, DateOfPayment --, [Months Prior]
-select * into #UKSustainersDataWithPayments 
-
-select * [except [Month Prior]] from #UKSustainersDataWithPayments
-order by ID, DateOfPayment, [Months Prior]
 
